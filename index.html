@@ -39,8 +39,14 @@
     </div>
 
     <div class="books-section container">
-        <!-- add book -->
-        <button data-trans="add-book" onclick="onAddBook()">Add Book</button>
+        <!-- top page buttons -->
+        <div class="top-page-btns container">
+            <button data-trans="add-book" onclick="onAddBook()">Add Book</button>
+            <div class="nextBack-btns">
+                <button data-trans="prev-page-btn" class="btnBack" onclick="onPrevPage()">Previous Page</button>
+                <button data-trans="next-page-btn" class="btnNext" onclick="onNextPage()">Next Page</button>
+            </div>
+        </div>
         <!-- books table -->
         <div class="books-header container">
             <table>

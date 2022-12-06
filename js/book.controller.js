@@ -13,7 +13,7 @@ function renderBooks() {
             <td>${book.title}</td>
             <td>${book.price}</td>
             <td>${book.rate}</td>
-            <td><img src=${book.imgUrl}></td>
+            <td><img src=${book.imgUrl} onerror="this.src='../img/book-one.jpg';" /></td>
             <td><button data-trans="read-btn" class="btnRead" onclick="onReadBook('${book.id}')">read</button></td>
             <td><button data-trans="update-btn" class="btnUpdate" onclick="onUpdateBook('${book.id}')">update</button></td>
             <td><button data-trans="delete-btn" class="btnDelete" onclick="onRemoveBook('${book.id}')">delete</button></td>

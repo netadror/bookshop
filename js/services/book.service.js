@@ -15,16 +15,16 @@ function _createBooks() {
     // Nothing in storage - generate demo data
     if (!books || !books.length) {
         books = [
-            _createBook('book-one', 18.90, 2),
-            _createBook('book-two', 60.65, 5),
-            _createBook('book-three', 75.20, 8),
+            _createBook('book-one', 18.90),
+            _createBook('book-two', 60.65),
+            _createBook('book-three', 75.20),
             _createBook('book-four', 96, 2),
             _createBook('book-five', 26, 1),
             _createBook('book-six', 74, 7),
-            _createBook('book-seven', 62.20, 9),
-            _createBook('book-eight', 46, 3),
-            _createBook('book-nine', 76, 0),
-            _createBook('book-ten', 13, 10)
+            _createBook('book-seven', 62.20),
+            _createBook('book-eight', 46),
+            _createBook('book-nine', 76),
+            _createBook('book-ten', 13)
         ]
     }
 
@@ -32,12 +32,12 @@ function _createBooks() {
     // console.log('gBooks', gBooks)
     _saveBooksToStorage()
 }
-function _createBook(title, price, rate) {
+function _createBook(title, price) {
     return {
         id: makeId(),
         title: title,
         price: price,
-        rate: rate,
+        rate: getRandomIntInclusive(0, 10),
         imgUrl: `"img/${title}.jpg"`,
         desc: makeLorem(15),
     }

@@ -172,6 +172,10 @@ td {
     width: 50%;
 }
 
+.top-page-btns {
+    display: flex;
+}
+
 .modal {
     display: flex;
     flex-direction: column;
