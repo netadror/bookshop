@@ -3,6 +3,7 @@
 function onInit() {
     renderFilterByQueryStringParams()
     renderBooks()
+    doTrans()
 }
 function renderBooks() {
     var books = getBooks()
@@ -122,4 +123,15 @@ function toggleDisablePrev() {
         elPrevBtn.disabled = true
         console.log('elPrevBtn.disabled', elPrevBtn.disabled)
     }
+}
+
+function onSetLang(lang) {
+    setLang(lang)
+
+    // done: if lang is hebrew add RTL class to document.body
+    if (lang === 'he') document.body.classList.add('rtl')
+    else document.body.classList.remove('rtl')
+
+    doTrans()
+    render()
 }

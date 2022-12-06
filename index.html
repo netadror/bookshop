@@ -33,6 +33,13 @@
         </section>
 
     </div>
+    <div class="languages">
+        <h3 data-trans="title">Change Language</h3>
+        <select onchange="onSetLang(this.value)">
+            <option value="en">English</option>
+            <option value="he">עברית</option>
+        </select>
+    </div>
     <div class="books-section">
         <button onclick="onAddBook()">Add Book</button>
         <div class="books-header">
@@ -51,22 +58,23 @@
         </table>
     </div>
     <div class="modal">
-        <h2>Book Id: <span class="bookId"></span></h2>
-        <h2>Book Title: <span class="bookTitle"></span></h2>
-        <h3>Book Price: $<span class="bookPrice"></span></h3>
-        <h3>Book Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque sed ea obcaecati numquam
+        <h2 data-trans="modal-book-id">Book Id: <span class="bookId"></span></h2>
+        <h2 data-trans="modal-book-title">Book Title: <span class="bookTitle"></span></h2>
+        <h3 data-trans="modal-book-price">Book Price: $<span class="bookPrice"></span></h3>
+        <h3 data-trans="modal-book-desc">Book Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Cumque sed ea obcaecati numquam
             molestias, non accusamus, ducimus nostrum, inventore voluptates maiores rem ipsam. Voluptates cum at quis
             quaerat! Doloribus, quisquam.</h3>
-        <h4>Book Rating:
+        <h4 data-trans="modal-book-rate">Book Rating:
             <button class="btnPlus" onclick="onPlusRate()"> + </button>
             <span class="rate"></span>
             <button class="btnMinus" onclick="onMinusRate()"> - </button>
         </h4>
-        <button onclick="onCloseModal()">Close</button>
+        <button data-trans="modal-close-btn" onclick="onCloseModal()">Close</button>
     </div>
     <div class="pageButtons">
-        <button class="btnNext" onclick="onNextPage()">Next Page</button>
-        <button class="btnBack" onclick="onPrevPage()">Previous Page</button>
+        <button data-trans="next-page-btn" class="btnNext" onclick="onNextPage()">Next Page</button>
+        <button data-trans="prev-page-btn" class="btnBack" onclick="onPrevPage()">Previous Page</button>
     </div>
 
     <script src="js/services/util.service.js"></script>
