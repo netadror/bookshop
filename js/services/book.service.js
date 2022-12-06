@@ -51,13 +51,8 @@ function removeBook(bookId) {
     _saveBooksToStorage()
     renderBooks()
 }
-function onAddBook() {
-    var addedBookName = prompt('book name?')
-    var addedBookPrice = prompt('book price?')
-    console.log('addedBookName, addedBookPrice', addedBookName, addedBookPrice)
-    addBook(addedBookName, addedBookPrice)
-}
 function addBook(addedBookName, addedBookPrice) {
+
     var newBook = _createBook(addedBookName, addedBookPrice)
     gBooks.push(newBook)
     _saveBooksToStorage()
@@ -96,6 +91,7 @@ function getBookById(bookId) {
 function setBookFilter(key, value) {
     console.log('key, value', key, value)
     gPageIdx = 0
+
     if (value !== undefined) gFilterBy[key] = value
     console.log('gFilterBy', gFilterBy)
     return gFilterBy
@@ -105,7 +101,10 @@ function getBooks() {
     console.log('searchKey', searchKey)
 
     if (searchKey) {
-        var books = gBooks.filter(book => book.title.includes(searchKey))
+        var books = gBooks.filter(book => {
+            // console.log('book', book)
+            return book.title.includes(searchKey)
+        })
     }
     else {
         books = gBooks.filter(book => {
@@ -113,7 +112,7 @@ function getBooks() {
                 book.rate >= gFilterBy.minRate
         })
     }
-    // console.log('books', books)
+    console.log('gBooks', gBooks)
     var startIdx = gPageIdx * PAGE_SIZE
     return books.slice(startIdx, startIdx + PAGE_SIZE)
 }

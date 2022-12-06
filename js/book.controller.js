@@ -20,6 +20,13 @@ function renderBooks() {
     )
     document.querySelector('.books-container').innerHTML = strHtmls.join('')
 }
+function onAddBook() {
+    // add protection against null
+    var addedBookName = prompt('book name?')
+    var addedBookPrice = prompt('book price?')
+    console.log('addedBookName, addedBookPrice', addedBookName, addedBookPrice)
+    addBook(addedBookName, addedBookPrice)
+}
 function onReadBook(bookId) {
     var book = getBookById(bookId)
     var elModal = document.querySelector('.modal')
@@ -28,7 +35,6 @@ function onReadBook(bookId) {
     elModal.querySelector('.bookPrice').innerText = book.price
     elModal.querySelector('.rate').innerText = book.rate
     elModal.classList.add('open')
-
 }
 function onRemoveBook(bookId) {
     removeBook(bookId)
@@ -64,9 +70,9 @@ function onSetFilterBy(key, value) {
     var filterBy = setBookFilter(key, value)
     console.log('filterBy', filterBy)
     renderBooks()
-    // const queryStringParams = `?maxPrice=${gFilterBy.maxPrice}&minRate=${gFilterBy.minRate}&search=${gFilterBy.search}`
-    // const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + queryStringParams
-    // window.history.pushState({ path: newUrl }, '', newUrl)
+    const queryStringParams = `?maxPrice=${gFilterBy.maxPrice}&minRate=${gFilterBy.minRate}&search=${gFilterBy.search}`
+    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + queryStringParams
+    window.history.pushState({ path: newUrl }, '', newUrl)
 }
 function onSearch() {
     var userSearch = document.querySelector('.search').value
@@ -89,18 +95,22 @@ function onPrevPage() {
 function renderFilterByQueryStringParams() {
     const queryStringParams = new URLSearchParams(window.location.search)
     const filterBy = {
-        maxPrice: queryStringParams.get('maxPrice') || '',
+        maxPrice: +queryStringParams.get('maxPrice') || 0,
         minRate: +queryStringParams.get('minRate') || 0,
-        search: +queryStringParams.get('search') || 0
-
+        search: queryStringParams.get('search') || ''
     }
-
+    console.log('filterBy', filterBy)
     if (!filterBy.maxPrice && !filterBy.minRate && !filterBy.search) return
 
-    document.querySelector('.filter-price').value = filterBy.maxPrice
-    document.querySelector('.filter-rate').value = filterBy.minRate
-    document.querySelector('.search').value = filterBy.search
-    setBookFilter(filterBy)
+    var priceFilter = document.querySelector('.filter-price').value = filterBy.maxPrice
+    var rateFilter = document.querySelector('.filter-rate').value = filterBy.minRate
+    var searchFilter = document.querySelector('.search').value = filterBy.search
+
+    console.log('filterBy.search', filterBy.search)
+
+    setBookFilter('maxPrice', filterBy.maxPrice)
+    setBookFilter('minRate', filterBy.minRate)
+    setBookFilter('search', filterBy.search)
 }
 function toggleDisableNext() {
     var elNextBtn = document.querySelector('.btnNext')
