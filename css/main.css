@@ -5,6 +5,7 @@
 body {
     display: flex;
     height: 100vh;
+    padding: 0px 20px;
     flex-direction: column;
     background-color: #ffffff;
     color: rgb(50, 50, 50);
@@ -21,28 +22,47 @@ body.rtl .btn-delete {
     float: left;
 }
 
+.languages {
+    display: flex;
+    margin-bottom: 20px;
+    font-weight: 400;
+    justify-content: center;
+    align-items: baseline
+}
+
 .pageMenu {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    /* justify-content: space-around; */
+    justify-content: space-evenly;
     height: 20%;
     width: 100%;
 }
 
 .book-filter {
+    display: flex;
     align-items: baseline;
     height: 20vh;
-    display: flex;
+    width: 100vw;
     flex-wrap: wrap;
     background-color: rgba(208, 208, 208, 0.553);
-    padding-top: 10px;
     border-radius: 10px;
-    width: 60%;
-    justify-content: space-evenly;
-    align-items: baseline;
-    flex-grow: 1;
+    justify-content: center;
     align-content: center;
+}
+
+.filter-title {
+    margin: 0px 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+input {
+    margin: 0px 20px;
 }
 
 .filter-price,
@@ -58,7 +78,6 @@ body.rtl .btn-delete {
     margin-top: 10px;
     /* text-transform: capitalize; */
     background-color: rgba(208, 208, 208, 0.553);
-    /* flex-grow: 1; */
 }
 
 .books-header {
@@ -78,7 +97,8 @@ input {
 
 }
 
-button {
+button,
+.form-select {
     color: rgb(50, 50, 50);
     border: none;
     background-color: rgb(138, 200, 255);
@@ -86,6 +106,7 @@ button {
     padding: 8px;
     text-transform: capitalize;
     cursor: pointer;
+    margin: 0px 10px;
 }
 
 .btnRead {
@@ -101,12 +122,31 @@ button {
 }
 
 button:hover {
-    background-color: #ff568e;
-    color: rgb(0, 66, 123);
+    background-color: rgb(0, 123, 129);
+    color: rgb(255, 255, 255);
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: white;
+    cursor: pointer;
+    /* width: 15rem; */
+    border-radius: 1rem;
+}
+
+input[type="text"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: white;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 0.4rem;
 }
 
 table {
     flex: auto;
+    margin: 10px;
     border: 1px solid black;
     border-collapse: collapse;
 }
@@ -129,30 +169,39 @@ td {
 }
 
 .modal {
-    background-color: rgb(220, 220, 220);
-    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(203, 239, 255);
+    border: 2px solid rgb(207, 207, 207);
     color: rgb(32, 32, 32);
-    padding: 10px;
+    padding: 25px;
     position: absolute;
     top: 0px;
     left: 150%;
-    height: 80vh;
-    min-width: 300px;
-    text-align: center;
+    height: 60vh;
 }
 
-.modal.open {
-    left: 50%;
-    transition: left .5s;
+.modal-header {
+    display: flex;
+    align-items: baseline;
 }
 
-.modal h3 {
-    color: rgb(53, 53, 53);
+.modal-header h3 {
+    margin: 0px 20px;
+    color: rgb(0, 123, 129);
     text-transform: capitalize;
 }
 
-.modal h4 span {
-    color: rgb(55, 55, 55);
+.modal-rating-btns {
+    margin-bottom: 40px;
+}
+
+.modal.open {
+    left: 60%;
+    width: 40vw;
+    transition: left .5s;
 }
 
 .modal>p {
