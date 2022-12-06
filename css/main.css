@@ -16,6 +16,7 @@ body {
 
 body.rtl {
     direction: rtl;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body.rtl .btn-delete {
@@ -24,8 +25,7 @@ body.rtl .btn-delete {
 
 .languages {
     display: flex;
-    margin-bottom: 20px;
-    font-weight: 400;
+    margin-bottom: 5px;
     justify-content: center;
     align-items: baseline
 }
@@ -41,7 +41,7 @@ body.rtl .btn-delete {
 .book-filter {
     display: flex;
     align-items: baseline;
-    height: 20vh;
+    height: 15vh;
     width: 100vw;
     flex-wrap: wrap;
     background-color: rgba(208, 208, 208, 0.553);
@@ -74,7 +74,7 @@ input {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 4%;
+    padding: 1%;
     margin-top: 10px;
     /* text-transform: capitalize; */
     background-color: rgba(208, 208, 208, 0.553);
@@ -159,7 +159,7 @@ th {
 td,
 th {
     border: 1px solid black;
-    padding: 10px;
+    padding: 5px;
     background-color: rgb(196, 196, 196);
 }
 
@@ -169,7 +169,7 @@ td {
 }
 
 .books-container img {
-    width: 50%;
+    width: 40%;
 }
 
 .top-page-btns {

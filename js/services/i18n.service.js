@@ -61,6 +61,10 @@ var gTrans = {
         en: 'rate',
         he: 'דירוג',
     },
+    image: {
+        en: 'Image',
+        he: 'תמונה'
+    },
     actions: {
         en: 'actions',
         he: 'פעולות'
