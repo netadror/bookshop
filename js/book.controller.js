@@ -3,7 +3,7 @@
 function onInit() {
     renderFilterByQueryStringParams()
     renderBooks()
-    doTrans()
+    // doTrans()
 }
 function renderBooks() {
     var books = getBooks()
@@ -13,9 +13,9 @@ function renderBooks() {
             <td>${book.title}</td>
             <td>${book.price}</td>
             <td>${book.rate}</td>
-            <td><button class="btnRead" onclick="onReadBook('${book.id}')">read</button></td>
-            <td><button class="btnUpdate" onclick="onUpdateBook('${book.id}')">update</button></td>
-            <td><button class="btnDelete" onclick="onRemoveBook('${book.id}')">delete</button></td>
+            <td><button data-trans="read-btn" class="btnRead" onclick="onReadBook('${book.id}')">read</button></td>
+            <td><button data-trans="update-btn" class="btnUpdate" onclick="onUpdateBook('${book.id}')">update</button></td>
+            <td><button data-trans="delete-btn" class="btnDelete" onclick="onRemoveBook('${book.id}')">delete</button></td>
      </tr> `
     )
     document.querySelector('.books-container').innerHTML = strHtmls.join('')
@@ -28,6 +28,7 @@ function onReadBook(bookId) {
     elModal.querySelector('.bookPrice').innerText = book.price
     elModal.querySelector('.rate').innerText = book.rate
     elModal.classList.add('open')
+
 }
 function onRemoveBook(bookId) {
     removeBook(bookId)
@@ -62,7 +63,7 @@ function onSetFilterBy(key, value) {
     // console.log('key, value', key, value)
     var filterBy = setBookFilter(key, value)
     console.log('filterBy', filterBy)
-    // renderBooks()
+    renderBooks()
     // const queryStringParams = `?maxPrice=${gFilterBy.maxPrice}&minRate=${gFilterBy.minRate}&search=${gFilterBy.search}`
     // const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + queryStringParams
     // window.history.pushState({ path: newUrl }, '', newUrl)
@@ -124,14 +125,9 @@ function toggleDisablePrev() {
         console.log('elPrevBtn.disabled', elPrevBtn.disabled)
     }
 }
-
 function onSetLang(lang) {
     setLang(lang)
-
-    // done: if lang is hebrew add RTL class to document.body
     if (lang === 'he') document.body.classList.add('rtl')
     else document.body.classList.remove('rtl')
-
     doTrans()
-    render()
 }

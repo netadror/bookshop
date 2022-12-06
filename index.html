@@ -10,73 +10,72 @@
 </head>
 
 <body onload="onInit()">
-    <h1>Bookshop App</h1>
+    <h1 data-trans="main-title">Bookshop App</h1>
     <div class="pageMenu">
+        <!-- filter section -->
         <section class="book-filter">
-            <!-- <h2>Search</h2> -->
-            <h2>Filter</h2>
-            <label>
-                Max Price
-                <input type="range" min="0" max="200" value="100" class="filter-price"
-                    onchange="this.title=this.value;onSetFilterBy('maxPrice', this.value)" />
-            </label>
-            <label>
-                Min Rating (1-10)
-                <input type="range" min="0" max="10" value="5" class="filter-rate"
-                    onchange="this.title=this.value;onSetFilterBy('minRate',this.value)" />
-            </label>
-            <label>
-                Search
-                <input class="search" type="text" placeholder="Enter book name"></input>
-                <button value="search" id="submit" onclick="onSearch()">Search</button>
-            </label>
+            <h2 data-trans="filter-title">Filter</h2>
+            <label data-trans="max-title">Max Price</label>
+            <input type="range" min="0" max="200" value="100" class="filter-price"
+                onchange="this.title=this.value;onSetFilterBy('maxPrice', this.value)" />
+            <label data-trans="min-title">Min Rating (1-10) </label>
+            <input type="range" min="0" max="10" value="5" class="filter-rate"
+                onchange="this.title=this.value;onSetFilterBy('minRate',this.value)" />
+            <label data-trans="search-bar-label">Search by book name</label>
+            <input data-trans="search-placeholder" class="search" type="text" placeholder="Enter book name"></input>
+            <button data-trans="search-bar-btn" value="search" id="submit" onclick="onSearch()">Search</button>
         </section>
-
+        <!-- languages -->
     </div>
     <div class="languages">
-        <h3 data-trans="title">Change Language</h3>
+        <h3 data-trans="change-lang">Change Language</h3>
         <select onchange="onSetLang(this.value)">
             <option value="en">English</option>
             <option value="he">עברית</option>
         </select>
     </div>
+
     <div class="books-section">
-        <button onclick="onAddBook()">Add Book</button>
+        <!-- add book -->
+        <button data-trans="add-book" onclick="onAddBook()">Add Book</button>
+        <!-- books table -->
         <div class="books-header">
         </div>
         <table>
             <tbody>
                 <thead>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Price</th>
-                    <th>Rate</th>
-                    <th colspan="3">Actions</th>
+                    <th data-trans="book-id">Id</th>
+                    <th data-trans="book-title">Title</th>
+                    <th data-trans="price">Price</th>
+                    <th data-trans="rate">Rate</th>
+                    <th data-trans="actions" colspan="3">Actions</th>
                 </thead>
             <tbody class="books-container">
             </tbody>
         </table>
     </div>
-    <div class="modal">
-        <h2 data-trans="modal-book-id">Book Id: <span class="bookId"></span></h2>
-        <h2 data-trans="modal-book-title">Book Title: <span class="bookTitle"></span></h2>
-        <h3 data-trans="modal-book-price">Book Price: $<span class="bookPrice"></span></h3>
-        <h3 data-trans="modal-book-desc">Book Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    <!-- modal  -->
+    <div class="modal container">
+        <h3 data-trans="modal-book-id">Book Id:</h3><span class="bookId"></span>
+        <h3 data-trans="modal-book-title">Book Title:</h3> <span class="bookTitle"></span>
+        <h3 data-trans="modal-book-price">Book Price: $</h3><span class="bookPrice"></span>
+        <h3>Book Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             Cumque sed ea obcaecati numquam
             molestias, non accusamus, ducimus nostrum, inventore voluptates maiores rem ipsam. Voluptates cum at quis
             quaerat! Doloribus, quisquam.</h3>
-        <h4 data-trans="modal-book-rate">Book Rating:
-            <button class="btnPlus" onclick="onPlusRate()"> + </button>
-            <span class="rate"></span>
-            <button class="btnMinus" onclick="onMinusRate()"> - </button>
-        </h4>
+        <h4 data-trans="modal-book-rate">Book Rating: </h4>
+        <button class="btnPlus" onclick="onPlusRate()"> + </button>
+        <span class="rate"></span>
+        <button class="btnMinus" onclick="onMinusRate()"> - </button>
         <button data-trans="modal-close-btn" onclick="onCloseModal()">Close</button>
     </div>
+    <!-- page buttons  -->
     <div class="pageButtons">
         <button data-trans="next-page-btn" class="btnNext" onclick="onNextPage()">Next Page</button>
         <button data-trans="prev-page-btn" class="btnBack" onclick="onPrevPage()">Previous Page</button>
     </div>
-
+    <!-- scripts  -->
+    <script src="js/services/i18n.service.js"></script>
     <script src="js/services/util.service.js"></script>
     <script src="js/services/storage.service.js"></script>
     <script src="js/services/book.service.js"></script>

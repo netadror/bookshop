@@ -29,7 +29,7 @@ function _createBooks() {
     }
 
     gBooks = books
-    console.log('gBooks', gBooks)
+    // console.log('gBooks', gBooks)
     _saveBooksToStorage()
 }
 function _createBook(title, price, rate) {
@@ -113,7 +113,7 @@ function getBooks() {
                 book.rate >= gFilterBy.minRate
         })
     }
-    console.log('books', books)
+    // console.log('books', books)
     var startIdx = gPageIdx * PAGE_SIZE
     return books.slice(startIdx, startIdx + PAGE_SIZE)
 }
@@ -135,12 +135,12 @@ function nextPage() {
 function prevPage() {
     if (gPageIdx * PAGE_SIZE <= 0) {
         gPageIdx = 0
-        toggleDisablePrev()
+        // toggleDisablePrev()
         console.log('gPageIdx too small', gPageIdx)
     }
     else {
         if (gPageIdx * PAGE_SIZE >= gBooks.length - 1) {
-            toggleDisableNext()
+            // toggleDisableNext()
         }
         gPageIdx--
         console.log('gPageIdx', gPageIdx)

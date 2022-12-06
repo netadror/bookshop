@@ -7,20 +7,20 @@ var gTrans = {
     },
     // filter bar
     'filter-title': {
-        en: 'Add',
+        en: 'Filter',
         he: 'סינון',
     },
     'max-title': {
-        en: 'Title',
+        en: 'Max Price',
         he: 'מחיר מקסימלי',
     },
     'min-title': {
-        en: 'Add',
+        en: 'Min Rating',
         he: 'דירוג מינימלי',
     },
     'search-bar-label': {
-        en: 'Title',
-        he: 'שם הספר'
+        en: 'Search by book name',
+        he: 'חפש לפי שם הספר'
     },
     'search-bar-placeholder': {
         en: 'Enter book name',
@@ -30,13 +30,21 @@ var gTrans = {
         en: 'Search',
         he: 'חפש'
     },
+    'search-placeholder': {
+        en: 'Enter book name',
+        he: 'הכנס שם ספר',
+    },
 
-    // 'search-bar-input': {
-    //     en: 'Add',
-    //     he: 'הוסף',
-    // },
-
+    // languages
+    'change-lang': {
+        en: 'Change Language',
+        he: 'שנה שפה'
+    },
     // table
+    'add-book': {
+        en: 'Add Book',
+        he: 'הוסף ספר'
+    },
     'book-id': {
         en: 'ID',
         he: 'מספר סידורי'
@@ -94,6 +102,7 @@ var gTrans = {
         en: 'Close',
         he: 'סגור',
     },
+
     // page buttons
     'next-page-btn': {
         en: 'Next Page',
@@ -104,27 +113,19 @@ var gTrans = {
         he: 'עמוד קודם'
     }
 }
-
-
+console.log('gTrans', gTrans)
 function getTrans(transKey) {
-    // done: if key is unknown return 'UNKNOWN'
     const key = gTrans[transKey]
     if (!key) return 'UNKNOWN'
 
-    // done: get from gTrans
     var translation = key[gCurrLang]
 
-    // done: If translation not found - use english
     if (!translation) translation = key.en
-
     return translation
 }
 
 function doTrans() {
-    // done: 
-    // var els = document.querySelectorAll('[data-trans]'
-    // for each el:
-    //    get the data-trans and use getTrans to replace the innerText 
+
     var els = document.querySelectorAll('[data-trans]')
     els.forEach(el => {
         const transKey = el.dataset.trans
